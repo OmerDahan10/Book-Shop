@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    text-decoration: underline;
+    color: rgb(98, 158, 98);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-book {
+    border: rgb(206, 206, 206) solid 2px;
+    border-radius: 5px;
+    background-color: rgb(241, 232, 232);
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-inline-start: 5px;
+}
+
+.new-book:hover {
+    background-color: rgb(115, 204, 115);
+}
+
+
+/* TABLE */
+
+.book-table {
+    background-color: rgb(170, 169, 161);
+    border-radius: 5px;
+    margin: auto;
+}
+
+.book-list {
+    background-color: rgb(241, 232, 232);
+}
+
+thead {
+    background-color: honeydew;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+thead .title:hover {
+    cursor: pointer;
+    color: rgb(7, 204, 0);
+}
+
+thead .price:hover {
+    cursor: pointer;
+    color: rgb(7, 204, 0);
+}
+
+tr td {
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.book-table button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: none;
+    background-color: rgb(118, 190, 118);
+    height: 20px;
+    width: 70px;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.book-table button:hover {
+    background-color: rgb(41, 241, 41);
+}
+
+
+/* MODAL */
+
+.book-modal {
+    background-color: rgba(235, 220, 220, 0.829);
+    height: 600px;
+    width: 300px;
+    padding: 10px;
+    position: fixed;
+    right: -50%;
+    top: 8px;
+    text-align: center;
+    transition: right 1s;
+    border-radius: 10px;
+}
+
+.book-modal.open {
+    right: 0%;
+    transition: 1s;
+}
+
+.book-modal h3 {
+    text-decoration: underline;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.book-modal .close {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    border: none;
+    background-color: rgb(240, 128, 128);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.book-modal .rate {
+    border: none;
+    background-color: rgb(240, 128, 128);
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    height: 20px;
+    width: 25px;
+}
+
+.book-modal p {
+    text-align: left;
+}
+
+
+/* MOVE PAGES */
+
+.page-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-width: 1215px;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.page-container button {
+    border: rgb(199, 241, 199) solid 2px;
+    border-radius: 5px;
+    background-color: rgb(241, 232, 232);
+    cursor: pointer;
+}
+
+.page-container button:hover {
+    background-color: rgb(122, 252, 122);
+}
