@@ -4,13 +4,20 @@
 
 body {
     text-align: center;
+    background-image:url('../img/books.jpg');
+
 }
 
 h1 {
+    margin-top: 0;
     text-align: center;
+    padding-top: 10px;
+    border-bottom: 10px solid rgb(98, 158, 98) ;
     margin-bottom: 40px;
     text-decoration: underline;
     color: rgb(98, 158, 98);
+    background-color:honeydew ;
+    height: 100px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -27,20 +34,80 @@ h1 {
     background-color: rgb(115, 204, 115);
 }
 
+.new-book-modal {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    background-color: rgb(115, 204, 115);
+    right: auto;
+    align-items: center;
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: -100%;
+    transition: top 2s;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* visibility: hidden; */
+
+}
+
+.new-book-modal.open {
+    /* visibility: visible; */
+    transition: top 2s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 22px 16px rgba(21, 21, 21, 0.8);
+}
+
+.add-new-book {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: rgb(199, 241, 199) solid 2px;
+    height: 40px;
+    width: 150px;
+    font-size: larger;
+    border-radius: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.add-new-book:hover {
+    border: rgb(199, 241, 199) solid 8px;
+    cursor: pointer;
+}
+
+
+.new-book-name, .new-book-price {
+    height: 30px;
+}
+
+.language {
+    background-color: rgb(241, 232, 232);
+    position: fixed;
+    left: 0.6rem;
+}
+
+
 
 /* TABLE */
 
 .book-table {
-    background-color: rgb(170, 169, 161);
+    background-color: rgb(179, 177, 166);
     border-radius: 5px;
     margin: auto;
+    margin-top: 100px;
 }
 
 .book-list {
     background-color: rgb(241, 232, 232);
 }
 
-thead {
+thead tr td {
     background-color: honeydew;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -58,17 +125,24 @@ thead .price:hover {
 
 tr td {
     text-align: center;
+    background-color: rgb(219, 219, 219);
     height: 50px;
+    font-size: large;
     width: 200px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+tr td:first-child {
+    width: 60px;
 }
 
 .book-table button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: none;
+    font-size: large;
     background-color: rgb(118, 190, 118);
-    height: 20px;
-    width: 70px;
+    height: 30px;
+    width: 80px;
     padding: 2px;
     cursor: pointer;
     border-radius: 5px;
@@ -135,7 +209,7 @@ tr td {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    max-width: 1215px;
+    max-width: 1070px;
     margin: auto;
     margin-top: 15px;
 }

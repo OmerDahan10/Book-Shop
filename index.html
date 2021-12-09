@@ -9,33 +9,42 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="init()">
-    <h1>welcome to My Bookshop!</h1>
-    <input class="new-book-name" type="text" placeholder="Enter book name:" /> -
-    <input class="new-book-price" type="text" placeholder="Enter book price:" />
-    <button class="new-book" onclick="onAddBook()">Create new book</button>
+<body onload="init()" >
+    <h1 data-trans="title">welcome to My Bookshop!</h1>
+    <button class="add-new-book" data-trans="newBook" onclick="toggleNewModal()">Add new book</button>
+    <section class="new-book-modal">
+        <input class="new-book-name" data-trans="newName" type="text" placeholder="Enter book name:" /> 
+        <input class="new-book-price" data-trans="newPrice" type="text" placeholder="Enter book price:" />
+        <button class="new-book" data-trans="newBook" onclick="onAddBook()">Create new book</button>
+    </section>
+
+    <select class="language" onchange="changeLang(this.value)" name="language" id="">
+        <option value="es">English</option>
+        <option value="hb">עברית</option>
+    </select>
 
     <table class="book-table">
         <thead>
-            <td>Id</td>
-            <td onclick="onSortBy(this)" class="title">Title</td>
-            <td onclick="onSortBy(this)" class="price">Price</td>
-            <td colspan="3">Actions</td>
+            <td data-trans="tId">Id</td>
+            <td onclick="onSortBy(this)" class="title" data-trans="tTitle">Title</td>
+            <td onclick="onSortBy(this)" class="price" data-trans="tPrice">Price </td>
+            <td colspan="3" data-trans="tActions">Actions</td>
         </thead>
         <tbody class="book-list">
 
         </tbody>
     </table>
     <section class="page-container">
-        <button class="prev-page" onclick="onPrevPage()">← Prev page</button>
-        <button class="next-page" onclick="onNextPage()">Next page →</button>
+        <button class="prev-page" data-trans="pPage" onclick="onPrevPage()">← Prev page</button>
+        <button class="next-page" data-trans="nPage" onclick="onNextPage()">Next page →</button>
     </section>
 
     <div class="book-modal">
         <button class="close" onclick="closeModal()">X</button>
         <h3></h3>
         <h4>price:<span></span>$</h4>
-        <h5>Rate: <button class="rate" onclick="onPlusRate()">+</button><span></span>⭐<button class="rate" onclick="onMinusRate()">-</button></h5>
+        <h5>Rate: <button class="rate" onclick="onPlusRate()">+</button><span></span>⭐<button class="rate"
+                onclick="onMinusRate()">-</button></h5>
         <p></p>
 
     </div>

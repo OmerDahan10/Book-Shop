@@ -1,4 +1,5 @@
 'use strict';
+var gLang = 'es';
 
 function init() {
     createBooks()
@@ -12,10 +13,10 @@ function renderBooks() {
         return `<tr>
         <td>${book.id}</td>
         <td>${book.name}</td>
-        <td>${book.price}$</td>
-        <td><button onclick ="onRead('${book.id}')">Read</button></td>
-        <td><button onclick ="onUpdateBook('${book.id}')">Update</button></td>
-        <td><button onclick ="removeBook('${book.id}')">Delete</button></td>
+        <td>${book.price}</td>
+        <td><button onclick ="onRead('${book.id}')" data-trans="read">Read</button></td>
+        <td><button onclick ="onUpdateBook('${book.id}')" data-trans="update">Update</button></td>
+        <td><button onclick ="removeBook('${book.id}')" data-trans="delete">Delete</button></td>
         </tr>`
     })
 
@@ -29,12 +30,14 @@ function removeBook(bookId) {
 }
 
 function onAddBook() {
-    const name = document.querySelector('.new-book-name').value;
-    const price = document.querySelector('.new-book-price').value;
-    addBook(name, price);
+    var name = document.querySelector('.new-book-name');
+    var price = document.querySelector('.new-book-price');
+    addBook(name.value, price.value);
     renderBooks();
-    document.querySelector('.new-book-name').value = '';
-    document.querySelector('.new-book-price').value = '';
+    toggleNewModal()
+    name.value = '';
+    price.value = '';
+
 }
 
 function onUpdateBook(bookId) {
@@ -86,3 +89,40 @@ function onPrevPage() {
     prevPage();
     renderBooks();
 }
+
+var gTranslate = {
+    title: { es: 'welcome to My Bookshop!', hb: 'ברוכים הבאים לחנות הספרים שלי' },
+    newBook: { es: 'Create new book', hb: 'צור ספר חדש' },
+    tActions: { es: 'Actions', hb: 'פעולות' },
+    tPrice: { es: 'Price', hb: 'מחיר' },
+    tTitle: { es: 'title', hb: 'כותרת' },
+    tId: { es: 'Id', hb: 'מ.ס' },
+    read: { es: 'Read', hb: 'קרא עוד' },
+    update: { es: 'Update', hb: 'עדכן' },
+    delete: { es: 'Delete', hb: 'מחק' },
+    pPage: { es: '← Prev page', hb: 'עמוד קודם→' },
+    nPage: { es: '← Next page', hb: '← עמוד הבא' },
+    newName: { es: 'Enter book name:', hb: 'הכנס שם ספר' },
+    newPrice: { es: 'Enter book price', hb: 'הכנס מחיר ספר' }
+}
+
+function changeLang(lang) {
+    if (lang === 'hb') document.body.style.direction = 'rtl';
+    else document.body.style.direction = 'ltr';
+
+    translate(lang);
+}
+
+function translate(lang) {
+    var trans = document.querySelectorAll('[data-trans]');
+    trans.forEach(el => {
+        if (el.nodeName === 'INPUT') el.placeholder = gTranslate[el.dataset.trans][lang];
+        else el.innerText = gTranslate[el.dataset.trans][lang];
+
+    })
+}
+
+function toggleNewModal(){
+    var x = document.querySelector('.new-book-modal').classList.toggle('open');
+}
+

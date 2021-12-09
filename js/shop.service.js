@@ -2,8 +2,9 @@
 
 var gBooks;
 var gSortBy = 'Title';
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 10;
 var gPageIdx = 0;
+
 
 function createBook(name, price, imgUrl = null) {
     var book = {
@@ -20,8 +21,8 @@ function createBook(name, price, imgUrl = null) {
 function createBooks() {
     if (!loadFromStorage('gBooks')) {
         gBooks = [createBook('Game of thrones', 20, 'img/got.jpg'),
-            createBook('harry Potter', 15, 'img/harry-potter.jpg'),
-            createBook('Jobs', 10, 'img/jobs.jpg')
+        createBook('harry Potter', 15, 'img/harry-potter.jpg'),
+        createBook('Jobs', 10, 'img/jobs.jpg')
         ];
         saveToStorage('gBooks', gBooks);
 
@@ -36,7 +37,7 @@ function getGbooks() {
 
 function deleteBookGbooks(bookId) {
     console.log(gBooks.length)
-    var idx = gBooks.findIndex(book =>  book.id === bookId )
+    var idx = gBooks.findIndex(book => book.id === bookId)
     gBooks.splice(idx, 1);
     saveToStorage('gBooks', gBooks);
 }
@@ -80,14 +81,14 @@ function setgSort(SortBy) {
 
 function setSort(gSortBy = 'Title') {
     if (gSortBy === 'Title') {
-        gBooks.sort(function(a, b) {
+        gBooks.sort(function (a, b) {
             if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
             if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
             return 0;
         })
 
     } else {
-        gBooks.sort(function(a, b) {
+        gBooks.sort(function (a, b) {
             if (a.price < b.price) return -1;
             if (a.price > b.price) return 1;
             return 0;
@@ -105,3 +106,4 @@ function prevPage() {
     if (gPageIdx === 0) return;
     gPageIdx--;
 }
+
